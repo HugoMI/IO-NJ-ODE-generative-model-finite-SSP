@@ -7,6 +7,20 @@ Two examples of finite SSP were studied for this work:
 - Sign of a Brownian motion; referred as "BMClasssification2" withtin the implementation.
 - Alternating renewal process; referred as "RPClasssification" withtin the implementation.
 
+Since the goal was to extend capabilities of [Neural Jump ODEs](https://github.com/FlorianKrach/PD-NJODE.git), essentially all files come from there with additions to the following files:
+
+-[models.py](NJODE/models.py)
+-[synthetic_datasets.py](NJODE/synthetic_datasets.py)
+-[data_utils.py](NJODE/data_utils.py)
+-[config.py](NJODE/configs/config.py)
+-[config_ParamFilter.py](NJODE/configs/config_ParamFilter.py)
+
+a new script corresponding to the generative scheme:
+
+-[gen_process.py](NJODE/gen_process.py)
+
+and a new folder to conduct the evaluation of the artificially generated paths with such scheme: [analysis](analysis).
+
 --------------------------------------------------------------------------------
 ## Usage, License & Citation
 
@@ -29,7 +43,11 @@ please cite the paper that was mainly used for this work:
   ```
 
 --------------------------------------------------------------------------------
-# Instructions for Running Experiments of Optimal Estimation of Generic Dynamics by Path-Dependent Neural Jump ODEs
+# Instructions for Running Experiments and Analysis
+
+
+
+
 
 The configs for the experiment are in the main config file [config.py](NJODE/configs/config.py) as well as in [config_LOB.py](NJODE/configs/config_LOB.py), [config_NJmodel.py](NJODE/configs/config_NJmodel.py) and [config_randomizedNJODE.py](NJODE/configs/config_randomizedNJODE.py).
 
@@ -41,3 +59,4 @@ cd NJODE
 
 
 ### Synthetic Datasets
+
