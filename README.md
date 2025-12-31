@@ -1,25 +1,30 @@
 # IO-NJ-ODE-generative-model-finite-SSP
 This repository contains implementations of NJ-ODE framework as a generative model for finite state stochastic processes, as part of a master thesis project.
 
-This work was built upon the original work of Neural Jump ODEs by Dr. Florian Ofenheimer-Krach et al., available at [Neural Jump ODEs](https://github.com/FlorianKrach/PD-NJODE.git) as part of an add-on to the Input Output Neural Jump ODE (IO NJ-ODE) framework to devise an easy and interpretable generative scheme in the context of finite state space processes (SSP).
+This work was built upon the original work of [Neural Jump ODEs](https://github.com/FlorianKrach/PD-NJODE.git) as part of an add-on to the Input Output Neural Jump ODE (IO NJ-ODE) framework to devise an easy and interpretable generative scheme in the context of finite state space processes (SSP).
 
 Two examples of finite SSP were studied for this work:
 - Sign of a Brownian motion; referred as "BMClasssification2" withtin the implementation.
 - Alternating renewal process; referred as "RPClasssification" withtin the implementation.
 
-Since the goal was to extend capabilities of [Neural Jump ODEs](https://github.com/FlorianKrach/PD-NJODE.git), essentially all files come from there with additions to the following files:
+Since the goal was to extend the capability of [Neural Jump ODEs](https://github.com/FlorianKrach/PD-NJODE.git) to a generative model, all files come esentially from there with some modifications or additions to the following files:
 
--[models.py](NJODE/models.py); slight modifications in the NJODE class when computing the loss and returning the predicted path of conditional expectation, as well as the addition of the function generate_future_path to artificially generate paths with the described generative scheme.  
--[synthetic_datasets.py](NJODE/synthetic_datasets.py);  BMClasssification2 and RPClassification classes were added to implement forementioned examples. Therein, the implementation of the Monte Carlo estimations for the corresponding conditional expectation can be found, including the particle filtering approach.  
--[data_utils.py](NJODE/data_utils.py); PriorDataset class was added to manage the structure of the input prior data to initialize the gnerative process.
--[config.py](NJODE/configs/config.py); dictionaries for setting the training, evaluation and artificailly generated data of the renewal process, as well as the corresponding model.  
--[config_ParamFilter.py](NJODE/configs/config_ParamFilter.py); dictionaries for setting the training, evaluation and artificailly generated data of the sign of Brownian motion, as well as the corresponding model.  
+- [models.py](NJODE/models.py); slight modifications in the NJODE class when computing the loss and returning the predicted path of conditional expectation, as well as the addition of the function generate_future_path to artificially generate paths with the described generative scheme.  
+- [synthetic_datasets.py](NJODE/synthetic_datasets.py);  BMClasssification2 and RPClassification classes were added to implement forementioned examples. Therein, the implementation of the Monte Carlo estimations for the corresponding conditional expectation can be found, including the particle filtering approach.  
+- [data_utils.py](NJODE/data_utils.py); PriorDataset class was added to manage the structure of the input prior data to initialize the gnerative process.
+- [config.py](NJODE/configs/config.py); dictionaries for setting the training, evaluation and artificailly generated data of the renewal process, as well as the corresponding model.  
+- [config_ParamFilter.py](NJODE/configs/config_ParamFilter.py); dictionaries for setting the training, evaluation and artificailly generated data of the sign of Brownian motion, as well as the corresponding model.  
 
 a new script corresponding to the generative capability:
 
--[gen_process.py](NJODE/gen_process.py); it manages the loading of the prior input data, the trained model for the generation process and the saving of the generated output data.  
+- [gen_process.py](NJODE/gen_process.py); it manages the loading of the prior input data, the trained model for the generation process and the saving of the generated output data.  
 
 and a new folder to conduct the evaluation of the artificially generated paths: [analysis](analysis).
+
+--------------------------------------------------------------------------------
+## Acknowledgements and References
+This code is based on IO NJ-ODE model developed in the work [Nonparametric Filtering, Estimation and Classification using Neural Jump ODEs](https://arxiv.org/abs/2412.03271), which corresponds to a series of papers devoted to [Neural Jump ODEs](https://github.com/FlorianKrach/PD-NJODE.git), which in turn started with the paper [Neural Jump Ordinary Differential Equations: Consistent Continuous-Time Prediction and Filtering](https://openreview.net/forum?id=JFKR3WqwyXR):
+https://github.com/HerreraKrachTeichmann/NJODE.
 
 --------------------------------------------------------------------------------
 
@@ -137,3 +142,5 @@ The following files conduct the quality of the artificially generated paths unde
 - [predictive_analysis.py](analysis/predictive_analysis.py)
 
 These need to be run and modified in a proper code editor according to the needs of each user. The input data must be inside the input_data folder and specify the name of the files to use. More details about usage can be found inside each file.
+
+
