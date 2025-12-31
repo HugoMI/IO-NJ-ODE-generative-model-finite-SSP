@@ -94,7 +94,7 @@ The following flags should be specified for the generative scheme integrated in 
 - **gen_dataset_params**: name of the params list (defined in config.py) to use
 - **model_id**: id (integer) of trained model to use for generative process
 - **prior_data_file_name**: name of the file (<name>.npy) located in data/input_data_generative_process folder, which contains prior data
-- **gen_seed*: seed for making the synthetic dataset generation reproducible
+- **gen_seed**: seed for making the synthetic dataset generation reproducible
 - **use_gpu**: whether to use GPU for generative process
 
 It must be said that the prior input data data to initialize the generative process is intended to be provided by the user in a specific folder for this purpose: data/input_data_generative_process after model training, within a corresponding folder whose name corresponds to the model name to be used, i.e., data/input_data_generative_process/BMClassification2 and data/input_data_generative_process/RPClassification. In addition, the prior data must follow the structure of the training data, with the flexibility of being one single observation or a sequence of observations, always starting at time 0. See some of the available examples.
